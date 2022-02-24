@@ -1,0 +1,69 @@
+{
+  "link": {
+    "googleViewer": "link:https://docs.google.com/viewer?url=",
+    "gbaEmulator": "app:IodineGBA/index.html#",
+    "decompressor": "func:decompressArchive(selectedElem.getAttribute('data-ref'))",
+    "picture": "func:previewMedia(0, selectedElem.getAttribute('href'))",
+    "video": "func:previewMedia(1, selectedElem.getAttribute('href'))",
+    "audio": "func:previewMedia(2, selectedElem.getAttribute('href'))",
+    "compressor": "func:compressFolder(selectedElem.getAttribute('data-ref'))"
+  },
+
+  "openText": {
+    "googleViewer": "Open with Google Document Viewer",
+    "gbaEmulator": "Run with IodineGBA",
+    "decompressor": "Decompress",
+    "picture": "Open with Medium",
+    "video": "Open with Medium",
+    "audio": "Play with Medium",
+    "compressor": "Compress folder to ZIP"
+  },
+
+  "ext": {
+    "doc": "googleViewer",
+    "docx": "googleViewer",
+    "xls": "googleViewer",
+    "xlsx": "googleViewer",
+    "ppt": "googleViewer",
+    "pptx": "googleViewer",
+    "pdf": "googleViewer",
+    "pages": "googleViewer",
+    "ai": "googleViewer",
+    "psd": "googleViewer",
+    "dxf": "googleViewer",
+    "eps": "googleViewer",
+    "ps": "googleViewer",
+    "ttf": "googleViewer",
+    "xps": "googleViewer",
+    "txt": "googleViewer",
+
+    "gba": "gbaEmulator",
+
+    "7z": "decompressor",
+    "xz": "decompressor",
+    "lzma": "decompressor",
+    "cab": "decompressor",
+    "zip": "decompressor",
+    "gzip": "decompressor",
+    "gz": "decompressor",
+    "bz2": "decompressor",
+    "rar": "decompressor",
+
+    "png": "picture",
+    "jpeg": "picture",
+    "jpg": "picture",
+    "gif": "picture",
+    "svg": "picture",
+
+    "mp4": "video",
+    "mov": "video",
+
+    "wav": "audio",
+    "mp3": "audio",
+    "ogg": "audio"
+  },
+  
+  "type": {
+    "dir": "compressor"
+  }
+}
