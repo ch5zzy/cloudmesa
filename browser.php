@@ -172,9 +172,9 @@ $_SESSION["LAST_ACTIVITY"] = time();
 			if(selectedElem.tagName == "A" && selectedElem.classList.contains("file-ref") && selectedElem.getAttribute("filename") != "..") {
 				preventDef(e);
 
-        //Check if file can be opened with a program
+				//Check if file can be opened with a program
 				if(selectedElem.getAttribute("program") != "") {
-          document.querySelector("#open-with-program").innerHTML = selectedElem.getAttribute("program");
+					document.querySelector("#open-with-program").innerHTML = selectedElem.getAttribute("program");
 					document.querySelector("#open-with-program").style.display = "block";
 				} else {
 					document.querySelector("#open-with-program").style.display = "none";
@@ -188,7 +188,6 @@ $_SESSION["LAST_ACTIVITY"] = time();
 				document.querySelector("#file-context").style.display = "block";
 
 				menuVis = !menuVis;
-
 			}
 
 			//Right-click in FileArea
@@ -231,12 +230,12 @@ $_SESSION["LAST_ACTIVITY"] = time();
 			uploadFiles(e.target.files);
 		});
 
-    //Control changing the background
+    	//Control changing the background
 		document.querySelector("#background-file").addEventListener("change", e => {
 			changeBackground(e.target.files);
 		});
 
-    //Control changing the user image
+    	//Control changing the user image
 		document.querySelector("#user-image-file").addEventListener("change", e => {
 			changeUserImage(e.target.files);
 		});
@@ -279,16 +278,31 @@ $_SESSION["LAST_ACTIVITY"] = time();
 		}
 
 		//Control loading indicator
-		var progressVis = false;
-		function setProgress(op = "Operation in progress", off = false) {
-			if(off) progressVis = true;
-			if(progressVis && op == "") {
+		function setProgress(op = "Operation in progress") {
+			let maxOp = Math.max(...Object.keys(opStack).concat([-1]));
+			opStack[maxOp + 1] = op;
+			console.log(opStack);
+
+			document.querySelector("#progress-popup").style.display = "block";
+			document.querySelector("#op-progress").innerHTML = op;
+
+			return maxOp + 1;
+		}
+		function completeProgress(opNum = opStack.length) {
+			let maxOp = Math.max(...Object.keys(opStack));
+
+			if (opNum >= 0 && opNum <= maxOp)
+				delete opStack[opNum];
+			
+			maxOp = Math.max(...Object.keys(opStack).concat([-1]));
+			console.log(opStack);
+
+			if(maxOp == -1) {
 				document.querySelector("#progress-popup").style.display = "none";
 			} else {
 				document.querySelector("#progress-popup").style.display = "block";
-				document.querySelector("#op-progress").innerHTML = op;
+				document.querySelector("#op-progress").innerHTML = opStack[maxOp];
 			}
-			progressVis = !progressVis;
 		}
 	</script>
 </body>
