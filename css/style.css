@@ -19,6 +19,9 @@ html, body {
 	width: 100vw;
 	height: 100vh;
 	margin: 0px;
+  background-color: #eaeaea;
+  background-size: cover;
+	background-position: center;
 }
 *:focus {
 	outline: none;
@@ -28,7 +31,7 @@ html, body {
 .topbar {
 	display: flex;
 	align-items: center;
-	background-color: rgb(80, 80, 80);
+	background-color: rgba(0, 0, 0, 0.5);
 	color: white;
 	width: 100vw;
 	height: 7vh;
@@ -38,7 +41,7 @@ html, body {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background-color: rgb(50, 50, 50);
+	background-color: rgba(0, 0, 0, 0);
 	color: white;
 	width: 20vw;
 	height: 100%;
@@ -65,9 +68,6 @@ html, body {
 	display: flex;
 	width: 100vw;
 	height: 93vh;
-  background-color: #eaeaea;
-	background-size: cover;
-	background-position: center;
 	color: white;
 	text-shadow: 0px 0px 6px black;
 }
@@ -222,7 +222,7 @@ input[type="text"], input[type="password"] {
 	color: black;
 	height: 5vh;
 	border: 0px;
-  padding: 0vw .5vw 0vw .5vw;
+  padding: 0vw .5vw 0vw 12px;
 }
 input[type="text"].rename {
 	width: 100%;
@@ -245,6 +245,21 @@ button.false, input[type="submit"].false {
 }
 button.true, input[type="submit"].true {
 	color: rgb(80, 80, 252);
+}
+
+/*Progress indicator*/
+#progress-popup #op-progress {
+  display: none;
+}
+#progress-popup #progress-icon {
+  width: 32px;
+  height: 32px;
+}
+#progress-popup:hover #progress-icon {
+  padding-right: .5vw;
+}
+#progress-popup:hover #op-progress {
+  display: inline-block;
 }
 
 /*Audio player*/

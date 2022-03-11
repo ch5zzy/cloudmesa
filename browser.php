@@ -38,12 +38,12 @@ $_SESSION["LAST_ACTIVITY"] = time();
 	<!--Topbar-->
 	<div class="topbar">
 		<div class="name">
-      <div class="user-image" onClick="document.querySelector('#user-image-file').click()" title="Click to choose a new profile image.">
-        <input type="file" id="user-image-file" accept="image/*" style="display: none" />
-      </div>
+      		<div class="user-image" onClick="document.querySelector('#user-image-file').click()" title="Click to choose a new profile image.">
+        		<input type="file" id="user-image-file" accept="image/*" style="display: none" />
+      		</div>
 			<span id="username"><?php echo $_SESSION["username"]; ?></span>
 		</div>
-    <!--Mobile user image-->
+    	<!--Mobile user image-->
 		<div class="content">
 			<input id="search" type="text" placeholder="Search this directory" style="width: 100%; color: white" onkeyup="populateFiles(document.querySelector('#search').value)" autocomplete="off" />
 		</div>
@@ -82,7 +82,7 @@ $_SESSION["LAST_ACTIVITY"] = time();
 
 		<!--Loading popup-->
 		<div id="progress-popup" class="bottom-right-area" style="display: none">
-			<img src="progress.gif" style="width: 32px; height: 32px; padding-right: .5vw">
+			<img id="progress-icon" src="progress.gif">
 			<span id="op-progress"></span>
 		</div>
 	</div>

@@ -362,7 +362,7 @@ async function loadExternalData() {
 	f = await fetch(rootDir + "php/UserManager.php", {method: "POST", body: formData});
 	username = await f.text();
 
-	let contentContainer = document.querySelector(".content-area");
+	let contentContainer = document.querySelector("body");
 	contentContainer.style.backgroundImage = "url('../backgrounds/background-" + username + "'), url('../backgrounds/generic')";
 
 	let userImage = document.querySelector(".user-image");
