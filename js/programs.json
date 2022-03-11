@@ -60,7 +60,14 @@
 
     "wav": "audio",
     "mp3": "audio",
-    "ogg": "audio"
+    "ogg": "audio",
+    "m4a": "audio",
+    "m4r": "audio",
+    "aiff": "audio",
+    "wma": "audio",
+    "flac": "audio",
+    "mp2": "audio",
+    "ac3": "audio"
   },
   
   "type": {
