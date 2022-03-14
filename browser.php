@@ -144,7 +144,9 @@ $_SESSION["LAST_ACTIVITY"] = time();
 	</div>
 	<div class="audio-player-controls">
 	  <h2><span id="audio-player-time"></span> / <span id="audio-player-track-length"></span></h2>
-	  <input id="audio-player-seek" type="range" min="0" max="100" value="0" step="0.01" onchange="audioSeek()" />
+	  <input id="audio-player-seek" type="range" min="0" max="100" value="0" step="0.001" onchange="audioSeek()" />
+	  &nbsp;
+	  <h2 id="audio-player-repeat-toggle" class="on" onclick="audioRepeatToggle()"><span>🔂</span></h2>
 	  <h1 id="audio-player-toggle" onclick="audioToggle()">play</h1>
     </div>
   </div>

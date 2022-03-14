@@ -1,6 +1,7 @@
 let updateTimer;
 var audio = new Audio();
 var audioSrc = "";
+var repeat = true;
 context = new (window.AudioContext || window.webkitAudioContext)();
 analyser = context.createAnalyser();
 source = context.createMediaElementSource(audio);
@@ -13,8 +14,12 @@ bars = 200;
 
 //Audio
 audio.addEventListener("ended", function() {
-  document.querySelector("#audio-player-toggle").innerHTML = "play";
-  audio.currentTime = 0;
+  if(repeat) {
+    audio.play();
+  } else {
+    document.querySelector("#audio-player-toggle").innerHTML = "play";
+    audio.currentTime = 0;
+  }
 });
 audio.addEventListener("pause", function() {
   document.querySelector("#audio-player-toggle").innerHTML = "resume";
@@ -81,6 +86,14 @@ function audioToggle() {
   }
   else audio.pause();
 }
+function audioRepeatToggle() {
+  var repeatToggle = document.querySelector("#audio-player-repeat-toggle");
+  repeat = !repeat;
+  if(repeat)
+    repeatToggle.classList.add("on");
+  else
+    repeatToggle.classList.remove("on");
+}
 function audioSeek() {
   audio.currentTime = document.querySelector("#audio-player-seek").value;
   document.querySelector("#audio-player-seek").blur();
@@ -97,20 +110,21 @@ function audioSeekVisualizerUpdate() {
   document.querySelector("#audio-player-time").innerHTML = min + ":" + sec;
 
   //Visualizer
-  if(audio.paused) return;
-
   canvas = document.querySelector("#audio-player-visualizer");
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
   ctx = canvas.getContext("2d");
 
-  analyser.getByteFrequencyData(freqArray);
+  //update frequency array if audio not paused
+  if(!audio.paused)
+    analyser.getByteFrequencyData(freqArray);
+  
   for(var i = 0; i < bars; i++){
     bar_height = freqArray[i] * 1.5;
 
     //set color
-	colorNum = i/bars * 360;
-	color = "hsla(" + colorNum + ", 99%, 50%, 0.4)";
+	  colorNum = i/bars * 360;
+	  color = "hsla(" + colorNum + ", 99%, 50%, 0.4)";
 
     //draw visualizer
     drawCircle(i, bar_height/1.5, freqArray[i], color);

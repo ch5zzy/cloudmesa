@@ -313,10 +313,24 @@ button.true, input[type="submit"].true {
 .audio-player-controls input[type=range]:focus {
     outline: none;
 }
-.audio-player-controls #audio-player-toggle, .audio-player-controls #audio-player-visualizer-switch {
+.audio-player-controls #audio-player-toggle, .audio-player-controls #audio-player-repeat-toggle {
   text-align: center;
   cursor: pointer;
   line-height: 1.4em;
+}
+.audio-player-controls #audio-player-repeat-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 13px 10px 13px;
+  display: inline-block;
+  border-radius: 50%;
+}
+.audio-player-controls #audio-player-repeat-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.audio-player-controls #audio-player-repeat-toggle.on {
+  background-color: rgba(255, 255, 255, 0.5);
 }
 #audio-player-visualizer {
   width: 100%;
